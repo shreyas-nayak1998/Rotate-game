@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+        div.button{
+        display:inline-block;
+        background:#33bb;
+        padding:20px;
+        color:white;
+        cursor:pointer;
+        }
+        p.word{
+            font-size:5em;
+            padding-left:10px;
+            padding-right:10px;
+        }
+        div.container{
+            width:60%;
+            margin:0 auto;
+        }
+        div.container>*{
+            
+            display:inline-block;
+            vertical-align:left;
+        
+        }
+        </style>
+    </head>
+    <body>
+            <div class="row">
+            <dv class="container">
+            
+                <div class="button left">&lt</div>
+                <p class="word"></p>
+                 <div class="button right">&gt</div>
+
+            </div>
+            </div>
+            <script>
+            let wordBox=document.querySelector('.word');
+            let word="hello";
+            let leftButton=document.querySelector('.left');
+             let rightButton=document.querySelector('.right');
+             leftButton.addEventListener('click',(e)=>{
+                 word=rotateOnceLeft(word);
+                 wordBox.textContent=word;
+             });
+             rightButton.addEventListener('click',(e)=>{
+                 word=rotateOnceRight(word);
+                 wordBox.textContent=word;
+             });
+            
+            wordBox.textContent=word;
+            function rotateOnceLeft(w){
+                return w.slice(1)+w[0];
+            }
+            function rotateLeft(w,times){
+                for(let i=0;i<times;i++)
+                w=rotatOnceLeft(w);
+                return w;
+            }
+
+
+             function rotateOnceRight(w){
+                return w[w.length-1]+w.slice(0,w.length-1);
+            }
+            function rotateRight(w,times){
+                for(let i=0;i<times;i++)
+                w=rotateOnceRight(w);
+                return w;
+            }
+            </script>
+    </body>
+</html>
